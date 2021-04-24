@@ -3,8 +3,16 @@ services:
   app:
     env_file:
       - .env
+    environment:
+      - MONGO_URI='mongodb://db:27017/mybags?retryWrites=true'
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"

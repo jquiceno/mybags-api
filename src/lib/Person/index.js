@@ -1,7 +1,7 @@
 'use strict'
 
 const { Types } = require('mongoose')
-const Basic = require('../basic')
+const Basic = require('../Basic')
 const Model = require('../../models/person')
 const { badRequest } = require('@hapi/boom')
 
