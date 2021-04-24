@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "76b5214d-8dd8-4258-9be6-dd66361f418f",
+		"name": "MyBags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "persons",
+			"item": [
+				{
+					"name": "Add new person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John\",\n    \"lastName\": \"Quiceno\",\n    \"email\": \"soyjquiceno@gmail.com\",\n    \"bags\": 10,\n    \"city\":\"Med\",\n    \"country\": \"Colombia\",\n    \"phone\": \"6782345456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}/persons",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all persons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/persons",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get person by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/persons/6083de265b133a70cd6dcfb1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"persons",
+								"6083de265b133a70cd6dcfb1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete person by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST_URL}}/persons/6083de265b133a70cd6dcfb1",
+							"host": [
+								"{{HOST_URL}}"
+							],
+							"path": [
+								"persons",
+								"6083de265b133a70cd6dcfb1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
