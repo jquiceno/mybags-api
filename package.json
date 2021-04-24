@@ -1,0 +1,35 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Single Nodejs api for admin people bags",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ENV=dev nodemon start ./src/server.js",
+    "start": "ENV=production node ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jquiceno/mybags-api.git"
+  },
+  "keywords": [],
+  "author": "jquiceno <loncuster@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jquiceno/mybags-api/issues"
+  },
+  "homepage": "https://github.com/jquiceno/mybags-api#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.2",
+    "@hapi/joi": "^17.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "nodemon": "^2.0.7",
+    "standard": "^16.0.3"
+  }
+}
