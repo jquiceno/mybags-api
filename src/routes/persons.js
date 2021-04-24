@@ -63,4 +63,19 @@ router.delete('/:personId', async ({ params }, res, next) => {
   }
 })
 
+router.put('/:personId', async ({ params, body }, res, next) => {
+  try {
+    const { personId } = params
+    const person = new Person(personId)
+    const personData = await person.update(body)
+
+    return res.json({
+      data: personData,
+      statusCode: 200
+    })
+  } catch (error) {
+    return next(error)
+  }
+})
+
 module.exports = router
