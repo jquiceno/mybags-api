@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  persons: require('./persons')
+  users: require('./users')
 }

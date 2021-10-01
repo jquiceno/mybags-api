@@ -3,14 +3,14 @@
 const { Router } = require('express')
 const router = Router()
 
-const { Person } = require('../lib/Person')
+const User = require('../lib/User')
 
 router.get('/', async (req, res, next) => {
   try {
-    const persons = await Person.getAll()
+    const users = await User.getAll()
 
     return res.json({
-      data: persons,
+      data: users,
       statusCode: 200
     })
   } catch (error) {
@@ -20,10 +20,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async ({ body }, res, next) => {
   try {
-    const persons = await Person.add(body)
+    const users = await User.add(body)
 
     return res.json({
-      data: persons,
+      data: users,
       statusCode: 201
     })
   } catch (error) {
@@ -31,16 +31,16 @@ router.post('/', async ({ body }, res, next) => {
   }
 })
 
-router.get('/:personId', async ({ params }, res, next) => {
+router.get('/:userId', async ({ params }, res, next) => {
   try {
-    const { personId } = params
-    const person = new Person(personId)
-    const personData = await person.get({
+    const { userId } = params
+    const user = new User(userId)
+    const userData = await user.get({
       required: true
     })
 
     return res.json({
-      data: personData,
+      data: userData,
       statusCode: 200
     })
   } catch (error) {
@@ -48,14 +48,14 @@ router.get('/:personId', async ({ params }, res, next) => {
   }
 })
 
-router.delete('/:personId', async ({ params }, res, next) => {
+router.delete('/:userId', async ({ params }, res, next) => {
   try {
-    const { personId } = params
-    const person = new Person(personId)
-    const personData = await person.delete()
+    const { userId } = params
+    const user = new User(userId)
+    const userData = await user.delete()
 
     return res.json({
-      data: personData,
+      data: userData,
       statusCode: 200
     })
   } catch (error) {

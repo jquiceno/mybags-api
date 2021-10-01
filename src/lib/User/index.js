@@ -2,10 +2,10 @@
 
 const { Types } = require('mongoose')
 const Basic = require('../Basic')
-const Model = require('../../models/person')
+const Model = require('../../models/user')
 const { badRequest } = require('@hapi/boom')
 
-class Person extends Basic {
+class User extends Basic {
   constructor (id) {
     const _id = /^[0-9a-fA-F]{24}$/.test(id) ? Types.ObjectId(id) : null
 
@@ -13,10 +13,10 @@ class Person extends Basic {
 
     if (_id) $or.push({ _id: id })
 
-    if (!$or.length) throw badRequest('Invalid Person Id')
+    if (!$or.length) throw badRequest('Invalid user Id')
 
     super({
-      name: 'Person',
+      name: 'User',
       query: {
         $or
       },
@@ -27,6 +27,6 @@ class Person extends Basic {
   }
 }
 
-Person.model = Model
+User.model = Model
 
-module.exports.Person = Person
+module.exports = User
