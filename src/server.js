@@ -7,6 +7,7 @@ const cors = require('cors')
 const routes = require('./routes')
 const { boomify } = require('@hapi/boom')
 const morgan = require('morgan')
+const seeds = require('./setup/seeds')
 
 dotenv.config()
 
@@ -55,6 +56,7 @@ app.use((error, req, res, next) => {
 initDb()
   .then(res => {
     console.log('DB Connected!')
+    ENV === 'dev' && seeds()
     app.listen(PORT, () => {
       console.log(`Server start in port ${PORT}`)
     })

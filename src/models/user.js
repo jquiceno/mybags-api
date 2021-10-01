@@ -26,7 +26,7 @@ const schema = new Schema({
         throw Boom.badRequest('The format of the email is incorrect')
       }
 
-      const user = await this.model('Person').countDocuments({ email: value })
+      const user = await this.model('User').countDocuments({ email: value })
 
       if (user) throw Boom.conflict('User email already exist')
 
@@ -48,4 +48,4 @@ const schema = new Schema({
   }
 })
 
-module.exports = model('Person', schema, 'persons')
+module.exports = model('User', schema, 'users')
